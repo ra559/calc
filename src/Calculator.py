@@ -10,12 +10,14 @@ def multiplication(a, b):
     return a * b
 
 
+def division(a, b):
+    return a / b
+
+
 class Calculator:
     result = 0
 
     def __init__(self):
-        x = 2 + 2
-        self.result = x
         pass
 
     def add(self, a, b):
@@ -29,3 +31,7 @@ class Calculator:
     def mult(self, a, b):
         self.result = a * b
         return multiplication(a, b)
+
+    def div(self, a, b):
+        self.result = a / b
+        return division(a, b)
