@@ -13,6 +13,7 @@ FILESUB = 'src/UnitTestSubtraction.csv'
 FILEMUL = 'src/UnitTestMultiplication.csv'
 FILESQR = 'src/UnitTestSquareRoot.csv'
 FILEDIV = 'src/UnitTestDivision.csv'
+FILESQA = 'src/UnitTestSquare.csv'
 
 
 class TestCalculator(unittest.TestCase):
@@ -61,8 +62,16 @@ class TestCalculator(unittest.TestCase):
         c.close()
 
     def test_square(self):
-        result = Calculator.square(2, 2)
-        self.assertEqual(result, 4)
+        c = open(FILESQA, 'r')
+        o = csv.reader(c)
+        for r in o:
+            if r[0] == 'Value 1':
+                continue
+            else:
+                result = Calculator.square(int(r[0]))
+                self.assertEqual(result, float(r[1]))
+        c.close()
+
 
     def test_squareRoot(self):
         result = Calculator.squareRoot(9)
