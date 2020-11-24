@@ -69,7 +69,7 @@ class TestCalculator(unittest.TestCase):
                 continue
             else:
                 result = Calculator.square(int(r[0]))
-                self.assertEqual(result, float(r[1]))
+                self.assertEqual(result, int(r[1]))
         c.close()
 
 
@@ -81,7 +81,7 @@ class TestCalculator(unittest.TestCase):
                 continue
             else:
                 result = Calculator.squareRoot(int(r[0]))
-                self.assertEqual(result, float(r[1]))
+                self.assertAlmostEqual(result, float(r[1]))
         c.close()
 
 
