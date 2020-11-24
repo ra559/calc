@@ -1,31 +1,37 @@
 import unittest
-from Calculator import Calculator
+import Calculator
+import csv
+
+FILEADD = 'UnitTestAddition.csv'
+FILESUB = 'UnitTestSubtraction.csv'
+FILEMUL = 'UnitTestMultiplication.csv'
+FILESQR = 'UnitTestSquareRoot.csv'
 
 
-class MytestCase(unittest.TestCase):
-    def test_instance_calculator(self):
-        calculator = Calculator()
-        self.assertIsInstance(calculator, Calculator)
+class TestCalculator(unittest.TestCase):
+    def test_add(self):
+        result = Calculator.add(2, 2)
+        self.assertEqual(result, 4)
 
-    def test_add_method_calculator(self):
-        calculator = Calculator()
-        self.assertEqual(calculator.add(2, 2), 4)
-        self.assertEqual(calculator.result, 4)
+    def test_subtract(self):
+        result = Calculator.subtract(2, 2)
+        self.assertEqual(result, 0)
 
-    def test_subs_method_calculator(self):
-        calculator = Calculator()
-        self.assertEqual(calculator.subs(2, 2), 0)
-        self.assertEqual(calculator.result, 0)
+    def test_multiply(self):
+        result = Calculator.multiply(2, 2)
+        self.assertEqual(result, 4)
 
-    def test_mult_method_calculator(self):
-        calculator = Calculator()
-        self.assertEqual(calculator.mult(2, 2), 4)
-        self.assertEqual(calculator.result, 4)
+    def test_divide(self):
+        result = Calculator.divide(4, 2)
+        self.assertEqual(result, 2)
 
-    def test_div_method_calculator(self):
-        calculator = Calculator()
-        self.assertEqual(calculator.div(4, 2), 2)
-        self.assertEqual(calculator.result, 2)
+    def test_square(self):
+        result = Calculator.square(2, 2)
+        self.assertEqual(result, 4)
+
+    def test_squareRoot(self):
+        result = Calculator.squareRoot(9)
+        self.assertEqual(result, 3)
 
 
 if __name__ == '__main__':

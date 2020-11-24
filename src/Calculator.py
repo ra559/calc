@@ -1,37 +1,25 @@
-def addition(a, b):
-    return a + b
+import math
 
 
-def subtraction(a, b):
-    return a - b
+def add(x, y):
+    return x + y
 
 
-def multiplication(a, b):
-    return a * b
+def subtract(x, y):
+    return x - y
 
 
-def division(a, b):
-    return a / b
+def multiply(x, y):
+    return x * y
 
 
-class Calculator:
-    result = 0
+def divide(x, y):
+    return x / y
 
-    def __init__(self):
-        pass
 
-    def add(self, a, b):
-        self.result = a + b
-        return addition(a, b)
+def square(x, y):
+    return x ** y
 
-    def subs(self, a, b):
-        self.result = a - b
-        return subtraction(a, b)
 
-    def mult(self, a, b):
-        self.result = a * b
-        return multiplication(a, b)
-
-    def div(self, a, b):
-        self.result = a / b
-        return division(a, b)
+def squareRoot(x):
+    return math.sqrt(x)
