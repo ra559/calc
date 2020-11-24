@@ -23,4 +23,4 @@ def square(x):
 
 
 def squareRoot(x):
-    return math.sqrt(x)
+    return round(math.sqrt(x), 9)
