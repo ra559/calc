@@ -4,4 +4,4 @@ ADD src /src
 
 RUN pip install pystrich
 
-CMD [ "python", "./src/CalculatorTests.py", "./src/UnitTestAddition.csv" ]
+CMD [ "python", "./src/CalculatorTests.py" ]

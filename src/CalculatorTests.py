@@ -2,28 +2,63 @@ import unittest
 import Calculator
 import csv
 
-FILEADD = 'UnitTestAddition.csv'
-FILESUB = 'UnitTestSubtraction.csv'
-FILEMUL = 'UnitTestMultiplication.csv'
-FILESQR = 'UnitTestSquareRoot.csv'
+# CONSTANTS
+'''
+NOTE:
+Always include the directory name for docker. By default docker will
+look for the files in the home directory. 
+'''
+FILEADD = 'src/UnitTestAddition.csv'
+FILESUB = 'src/UnitTestSubtraction.csv'
+FILEMUL = 'src/UnitTestMultiplication.csv'
+FILESQR = 'src/UnitTestSquareRoot.csv'
+FILEDIV = 'src/UnitTestDivision.csv'
 
 
 class TestCalculator(unittest.TestCase):
     def test_add(self):
-        result = Calculator.add(2, 2)
-        self.assertEqual(result, 4)
+        c = open(FILEADD, 'r')  # opens file in read mode
+        o = csv.reader(c)
+        for r in o:
+            if r[0] == 'Value 1':
+                continue
+            else:
+                result = Calculator.add(int(r[0]), int(r[1]))
+                self.assertEqual(result, int(r[2]))
+        c.close()  # closes file
 
     def test_subtract(self):
-        result = Calculator.subtract(2, 2)
-        self.assertEqual(result, 0)
+        c = open(FILESUB, 'r')
+        o = csv.reader(c)
+        for r in o:
+            if r[0] == 'Value 1':
+                continue
+            else:
+                result = Calculator.subtract(int(r[1]), int(r[0]))
+                self.assertEqual(result, int(r[2]))
+        c.close()
 
     def test_multiply(self):
-        result = Calculator.multiply(2, 2)
-        self.assertEqual(result, 4)
+        c = open(FILEMUL, 'r')
+        o = csv.reader(c)
+        for r in o:
+            if r[0] == 'Value 1':
+                continue
+            else:
+                result = Calculator.multiply(int(r[0]), int(r[1]))
+                self.assertEqual(result, int(r[2]))
+        c.close()
 
     def test_divide(self):
-        result = Calculator.divide(4, 2)
-        self.assertEqual(result, 2)
+        c = open(FILEDIV, 'r')
+        o = csv.reader(c)
+        for r in o:
+            if r[0] == 'Value 1':
+                continue
+            else:
+                result = Calculator.divide(int(r[1]), int(r[0]))
+                self.assertEqual(result, float(r[2]))
+        c.close()
 
     def test_square(self):
         result = Calculator.square(2, 2)
