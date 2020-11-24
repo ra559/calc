@@ -74,8 +74,15 @@ class TestCalculator(unittest.TestCase):
 
 
     def test_squareRoot(self):
-        result = Calculator.squareRoot(9)
-        self.assertEqual(result, 3)
+        c = open(FILESQR, 'r')
+        o = csv.reader(c)
+        for r in o:
+            if r[0] == 'Value 1':
+                continue
+            else:
+                result = Calculator.squareRoot(int(r[0]))
+                self.assertEqual(result, float(r[1]))
+        c.close()
 
 
 if __name__ == '__main__':
